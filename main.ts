@@ -10,15 +10,15 @@ w(j(O,k,'stdout.bin'),u.subarray(0,l));
 w(j(O,k,'exit.txt'),x+'\n');
 }
 function R(P,N){
-const S=[],C=[],M=new Int32Array(256),n=P.length;
+const S=[],C=[],M=new Int32Array(256);
 let p=0,g=0,s=0;
 for(;;){
 if(s==1e6)return 10;
-if(p<0||p>=n)return 9;
+if(p<0||p>=P.length)return 9;
 const o=P[p];
 if(!(o<8||o>15&&o<31||o>31&&o<35||o>47&&o<53||o>63&&o<66||o>79&&o<84))return 5;
 const i=o==1?1:o==2?4:o>47&&o<52?2:0;
-if(p+i>=n)return 9;
+if(p+i>=P.length)return 9;
 s++;
 const q=p+1+i;
 p=q;
@@ -38,7 +38,7 @@ else{
 if(S.length<2)return 2;
 const b=S.pop(),a=S.pop();
 if(o>18&&o<23&&!b)return 4;
-S.push(o==16?(a+b)|0:o==17?(a-b)|0:o==18?Math.imul(a,b):o==19?(a/b)|0:o==20?b==-1?0:a%b|0:o==21?Math.floor((a>>>0)/(b>>>0))|0:o==22?(a>>>0)%(b>>>0)|0:o==24?a&b:o==25?a|b:o==26?a^b:o==28?a<<(b&31):o==29?a>>(b&31):o==30?a>>>(b&31)|0:o==32?a==b?1:0:o==33?a<b?1:0:(a>>>0)<(b>>>0)?1:0);
+S.push(o==16?(a+b)|0:o==17?(a-b)|0:o==18?Math.imul(a,b):o==19?(a/b)|0:o==20?b==-1?0:a%b|0:o==21?((a>>>0)/(b>>>0))|0:o==22?(a>>>0)%(b>>>0)|0:o==24?a&b:o==25?a|b:o==26?a^b:o==28?a<<(b&31):o==29?a>>(b&31):o==30?a>>>(b&31)|0:o==32?a==b?1:0:o==33?a<b?1:0:(a>>>0)<(b>>>0)?1:0);
 }
 }
 else if(o<53){
